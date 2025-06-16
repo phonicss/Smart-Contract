@@ -48,6 +48,7 @@ contract Crowdfunding {
         require(_index < tiers.length, "Tier does not exist");
         tiers[_index] = tiers[tiers.length -1];
         tiers.pop();
+        //ok
         
     }
 
