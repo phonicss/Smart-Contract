@@ -39,6 +39,7 @@ contract Crowdfunding {
         require(_tierIndex < tiers.length, "Invalid tier");
         require(msg.value == tiers[_tierIndex].amount, "Incorect ammount");
 
+        //increment backers
         tiers[_tierIndex].backers++;
 
     }
