@@ -34,9 +34,13 @@ contract Crowdfunding {
         owner = msg.sender;
     }
 
-    function fund() public payable {
-        require(msg.value > 0, "Must fund amount greatet than 0");
+    function fund(uint256 _tierIndex) public payable {
         require(block.timestamp < deadline, "Campaign has ended");
+        require(_tierIndex < tiers.length, "Invalid tier");
+        require(msg.value == tiers[_tierIndex].amount, "Incorect ammount");
+
+        tiers[_tierIndex].backers++;
+
     }
 
     function addTier(string memory _name, uint256 _amount) public onlyOwner  {
@@ -48,7 +52,6 @@ contract Crowdfunding {
         require(_index < tiers.length, "Tier does not exist");
         tiers[_index] = tiers[tiers.length -1];
         tiers.pop();
-        //okokok
         
     }
 
