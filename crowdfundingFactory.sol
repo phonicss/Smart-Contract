@@ -8,7 +8,7 @@ contract CrowdfundingFactory {
     bool public paused;
 
     struct Campaign {
-        address campaignAddress;  // Исправлено: campaigAdress -> campaignAddress
+        address campaignAddress;  
         address owner;
         string name;
         uint256 creationTime;
@@ -50,7 +50,7 @@ contract CrowdfundingFactory {
             campaignAddress: campaignAddress,
             owner: msg.sender,
             name: _name,
-            creationTime: block.timestamp  // Исправлено: creatinTime -> creationTime
+            creationTime: block.timestamp  
        });
 
         campaigns.push(campaign);
